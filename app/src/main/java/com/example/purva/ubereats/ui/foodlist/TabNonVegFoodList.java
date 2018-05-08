@@ -56,12 +56,12 @@ public class TabNonVegFoodList extends Fragment {
 
         sharedPreferences = getActivity().getSharedPreferences("myfile", Context.MODE_PRIVATE);
 
+        //get city from saved address
         String address = sharedPreferences.getString("deliveryaddress","");
-
         String[] vals = address.split(",");
-
         city = vals[vals.length -3];
-        Log.i("test", city);
+        Log.i("test", "This is the city:"+ city);
+
         initRecyclerView();
         return v;
 
@@ -69,7 +69,7 @@ public class TabNonVegFoodList extends Fragment {
     }
 
     private void initRecyclerView() {
-        JsonObjectRequest request = new JsonObjectRequest("http://rjtmobile.com/ansari/fos/fosapp/fos_food.php?food_category=non-veg&city=" +city
+        JsonObjectRequest request = new JsonObjectRequest("http://rjtmobile.com/ansari/fos/fosapp/fos_food.php?food_category=non-veg&city="+city
                 , null, new Response.Listener<JSONObject>() {
             @Override
             public void onResponse(JSONObject response) {
