@@ -1,20 +1,24 @@
 package com.example.purva.ubereats.ui.location;
 
 import android.content.Context;
+import android.content.Intent;
 import android.content.SharedPreferences;
 import android.location.Address;
 import android.location.Geocoder;
 import android.support.v4.app.FragmentActivity;
 import android.os.Bundle;
+import android.view.View;
 import android.widget.Button;
 
 import com.example.purva.ubereats.R;
+import com.example.purva.ubereats.ui.FoodListActivity;
 import com.google.android.gms.maps.CameraUpdateFactory;
 import com.google.android.gms.maps.GoogleMap;
 import com.google.android.gms.maps.OnMapReadyCallback;
 import com.google.android.gms.maps.SupportMapFragment;
 import com.google.android.gms.maps.model.LatLng;
 import com.google.android.gms.maps.model.MarkerOptions;
+
 
 import java.util.List;
 
@@ -38,6 +42,14 @@ public class MapsActivity extends FragmentActivity implements OnMapReadyCallback
 
         sharedPreferences = getSharedPreferences("myfile",MODE_PRIVATE);
         streetAddr = sharedPreferences.getString("deliveryaddress","");
+
+        okay.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(MapsActivity.this, FoodListActivity.class);
+                startActivity(intent);
+            }
+        });
     }
 
 
