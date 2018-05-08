@@ -1,4 +1,4 @@
-package com.example.purva.ubereats;
+package com.example.purva.ubereats.base;
 
 public interface BaseView<T> {
 

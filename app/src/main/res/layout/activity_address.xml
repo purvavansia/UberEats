@@ -7,6 +7,15 @@
     android:orientation="vertical"
     tools:context=".ui.address.AddressActivity">
 
+    <TextView
+        android:textSize="25dp"
+        android:layout_gravity="center"
+        android:padding="10dp"
+        android:gravity="center"
+        android:text="@string/where_do_you_want_you_food_to_be_delivered"
+        android:layout_marginTop="50dp"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content" />
     <LinearLayout
         android:orientation="horizontal"
         android:layout_width="match_parent"
@@ -14,15 +23,14 @@
     <EditText
         android:layout_marginLeft="50dp"
         android:id="@+id/editTextAddress"
-        android:layout_marginTop="110dp"
+        android:layout_marginTop="50dp"
         android:layout_width="250dp"
         android:hint="@string/enter_the_address"
         android:layout_height="wrap_content" />
         <ImageView
             android:id="@+id/enter"
-            android:background="@drawable/button_layout"
             android:src="@drawable/enter"
-            android:layout_marginTop="100dp"
+            android:layout_marginTop="50dp"
             android:layout_width="50dp"
             android:layout_height="50dp" />
     </LinearLayout>

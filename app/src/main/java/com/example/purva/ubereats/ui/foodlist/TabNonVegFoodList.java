@@ -1,4 +1,4 @@
-package com.example.purva.ubereats.ui;
+package com.example.purva.ubereats.ui.foodlist;
 
 import android.content.Context;
 import android.content.SharedPreferences;
@@ -51,7 +51,7 @@ public class TabNonVegFoodList extends Fragment {
         unbinder = ButterKnife.bind(this, v);
 
         foodList = new ArrayList<Food>();
-        initRecyclerView();
+
 
 
         sharedPreferences = getActivity().getSharedPreferences("myfile", Context.MODE_PRIVATE);
@@ -62,7 +62,7 @@ public class TabNonVegFoodList extends Fragment {
 
         city = vals[vals.length -3];
         Log.i("test", city);
-
+        initRecyclerView();
         return v;
 
 

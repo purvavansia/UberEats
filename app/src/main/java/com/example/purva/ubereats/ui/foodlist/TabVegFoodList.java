@@ -1,4 +1,4 @@
-package com.example.purva.ubereats.ui;
+package com.example.purva.ubereats.ui.foodlist;
 
 import android.os.Bundle;
 import android.support.annotation.NonNull;

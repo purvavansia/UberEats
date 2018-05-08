@@ -22,6 +22,8 @@ class AddressActivity : AppCompatActivity() {
         var address: EditText = findViewById(R.id.editTextAddress)
          var enter: ImageView = findViewById(R.id.enter)
          var sharedPreferences: SharedPreferences = getSharedPreferences("myfile", Context.MODE_PRIVATE)
+
+
         enter.setOnClickListener {
             val deliveryAddress = address.text.toString()
             var editor: SharedPreferences.Editor? = sharedPreferences.edit()

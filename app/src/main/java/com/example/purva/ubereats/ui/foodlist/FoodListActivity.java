@@ -1,12 +1,12 @@
-package com.example.purva.ubereats.ui;
+package com.example.purva.ubereats.ui.foodlist;
 
-import android.graphics.Color;
 import android.support.design.widget.TabLayout;
 import android.support.v4.view.ViewPager;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 
 import com.example.purva.ubereats.R;
+import com.example.purva.ubereats.adapter.Pager;
 
 public class FoodListActivity extends AppCompatActivity implements TabLayout.OnTabSelectedListener {
 TabLayout tabLayout;
