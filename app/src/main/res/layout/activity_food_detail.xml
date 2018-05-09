@@ -1,0 +1,127 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical">
+
+    <RelativeLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content">
+<LinearLayout
+    android:orientation="vertical"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content">
+
+    <ImageView
+        android:id="@+id/foodImage"
+        android:layout_width="415dp"
+        android:layout_height="165dp"
+        android:scaleType="centerCrop" />
+<LinearLayout
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:orientation="horizontal">
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="10dp"
+        android:layout_marginTop="30dp"
+        android:textSize="17dp"
+        android:textColor="#000"
+        android:text="Recipe:  "
+        />
+    <TextView
+        android:id="@+id/receipieedetail"
+        android:layout_marginTop="30dp"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="food"
+
+        />
+</LinearLayout>
+
+
+       <LinearLayout
+           android:layout_width="wrap_content"
+           android:layout_height="wrap_content"
+           android:orientation="horizontal"
+           android:layout_marginTop="20dp">
+
+           <TextView
+               android:layout_width="wrap_content"
+               android:layout_height="wrap_content"
+               android:paddingTop="5dp"
+               android:layout_marginLeft="10dp"
+               android:textSize="17dp"
+               android:textColor="#000"
+               android:text="Choose Flavor:"
+               />
+
+            <RadioGroup
+                android:id="@+id/flavor"
+
+                android:orientation="horizontal"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+            <RadioButton
+                android:id="@+id/spicyradio"
+                android:layout_width="93dp"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="20dp"
+                android:text="Spicy" />
+
+            <RadioButton
+                android:id="@+id/mildradio"
+                android:layout_width="131dp"
+
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="20dp"
+                android:text="Mild" />
+            </RadioGroup>
+
+       </LinearLayout>
+
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="10dp"
+        android:layout_marginTop="20dp"
+        android:textSize="17dp"
+        android:textColor="#000"
+        android:text="Choose quantity:"
+        />
+
+    <NumberPicker
+        android:id="@+id/numberPicker"
+        android:layout_width="374dp"
+        android:layout_height="106dp"
+        android:layout_marginBottom="8dp"
+        android:layout_marginEnd="8dp"
+        android:layout_marginStart="8dp"
+        android:layout_marginTop="8dp" />
+
+    <TextView
+        android:id="@+id/total"
+        android:text="total: 0"
+        android:textSize="20dp"
+        android:layout_gravity="right"
+        android:layout_marginRight="10dp"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content" />
+
+</LinearLayout>
+
+        <Button
+        android:id="@+id/addtocart_btn"
+        android:background="@drawable/button_layout"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:text="Add to Cart"
+        />
+    </RelativeLayout>
+
+
+</LinearLayout>

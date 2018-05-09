@@ -17,7 +17,7 @@ public interface FoodListContract {
 
 
     interface IPresenter extends BasePresenter {
-        List<Food>  getFoodList();
+//        List<Food>  getFoodList();
 
         void rvItemClick(View v, int position, Food food, FragmentActivity activity);
     }
