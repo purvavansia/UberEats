@@ -11,11 +11,9 @@ import android.view.View;
 import android.widget.Button;
 
 import com.example.purva.ubereats.R;
-<<<<<<< HEAD
+import com.example.purva.ubereats.ui.address.AddressActivity;
 import com.example.purva.ubereats.ui.foodlist.FoodListActivity;
-=======
-import com.example.purva.ubereats.ui.FoodListActivity;
->>>>>>> origin/jinlivegBranch
+
 import com.google.android.gms.maps.CameraUpdateFactory;
 import com.google.android.gms.maps.GoogleMap;
 import com.google.android.gms.maps.OnMapReadyCallback;
@@ -55,6 +53,13 @@ public class MapsActivity extends FragmentActivity implements OnMapReadyCallback
 
             }
         });
+        change.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(MapsActivity.this, AddressActivity.class);
+                startActivity(intent);
+            }
+        });
     }
 
 
@@ -78,6 +83,7 @@ public class MapsActivity extends FragmentActivity implements OnMapReadyCallback
         LatLng address = getLocationFromAddress(this, streetAddr);
         mMap.addMarker(new MarkerOptions().position(address).title("Deliver to"));
         mMap.moveCamera(CameraUpdateFactory.newLatLng(address));
+        mMap.animateCamera(CameraUpdateFactory.newLatLngZoom(address, 12.0f));
     }
 
     public LatLng getLocationFromAddress(Context context, String strAddress)

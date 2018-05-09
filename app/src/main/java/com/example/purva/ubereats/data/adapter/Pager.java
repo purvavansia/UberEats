@@ -1,4 +1,4 @@
-package com.example.purva.ubereats.adapter;
+package com.example.purva.ubereats.data.adapter;
 
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentManager;

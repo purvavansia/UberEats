@@ -1,0 +1,217 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    tools:context=".ui.checkout.CheckoutActivity">
+
+    <ScrollView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content">
+        <LinearLayout
+            android:orientation="vertical"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content">
+    <TextView
+        android:layout_marginTop="5dp"
+        android:layout_gravity="center"
+        android:textSize="30sp"
+        android:text="@string/your_cart"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content" />
+
+
+    <TextView
+        android:layout_marginTop="5dp"
+        android:layout_gravity="center"
+        android:textSize="15sp"
+        android:text="@string/arrives_in_30_mins"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content" />
+
+    <View
+        android:layout_marginTop="10dp"
+        android:layout_width="350dp"
+        android:layout_gravity="center"
+        android:layout_height="1dp"
+        android:background="@android:color/darker_gray"/>
+
+    <TextView
+        android:layout_marginTop="20dp"
+        android:layout_marginLeft="20dp"
+        android:textSize="20dp"
+        android:text="@string/delivering_to"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content" />
+    <LinearLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal">
+        <fragment
+            android:id="@+id/mapShort"
+            android:layout_marginTop="20dp"
+            android:layout_marginLeft="20dp"
+            android:name="com.google.android.gms.maps.SupportMapFragment"
+            android:layout_width="120dp"
+            android:layout_height="120dp"
+            tools:context=".ui.location.MapsActivity"
+            tools:layout="@layout/activity_maps" />
+        <TextView
+            android:layout_marginTop="40dp"
+            android:layout_marginLeft="20dp"
+            android:textSize="25dp"
+            android:id="@+id/streetAdrress"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content" />
+    </LinearLayout>
+
+    <TextView
+        android:layout_marginTop="20dp"
+        android:padding="10dp"
+        android:layout_gravity="center"
+        android:textSize="20dp"
+        android:text="@string/people_who_ordered_this_item_also_ordered"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content" />
+
+        <android.support.v7.widget.RecyclerView
+            android:id="@+id/AlsoView_recyclerView"
+            android:layout_width="match_parent"
+            android:orientation="horizontal"
+            android:layout_height="150dp">
+
+        </android.support.v7.widget.RecyclerView>
+
+            <TextView
+                android:layout_marginTop="20dp"
+                android:padding="10dp"
+                android:layout_gravity="center"
+                android:textSize="20dp"
+                android:text="Your Items"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content" />
+            <android.support.v7.widget.RecyclerView
+                android:id="@+id/checkout_recyclerView"
+                android:layout_width="match_parent"
+                android:orientation="vertical"
+                android:layout_height="wrap_content">
+
+            </android.support.v7.widget.RecyclerView>
+            <TextView
+                android:layout_marginTop="20dp"
+                android:padding="10dp"
+                android:textSize="20dp"
+                android:text="@string/special_instructions"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content" />
+            <EditText
+                android:padding="10dp"
+                android:textSize="15dp"
+                android:hint="@string/add_a_note_extra_sauce_extra_napkins"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content" />
+
+            <RelativeLayout
+                android:layout_marginTop="5dp"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+                <TextView
+                    android:id="@+id/subtotaltextView"
+                    android:text="@string/subtotal"
+                    android:textSize="20dp"
+                    android:paddingLeft="10dp"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content" />
+                <TextView
+                    android:id="@+id/valueSubTotal"
+                    android:text="@string/subtotal"
+                    android:textSize="20dp"
+                    android:paddingRight="10dp"
+                    android:layout_alignParentEnd="true"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content" />
+            </RelativeLayout>
+            <RelativeLayout
+                android:layout_marginTop="5dp"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+                <TextView
+                    android:id="@+id/taxtextView"
+                    android:text="@string/tax"
+                    android:textSize="20dp"
+                    android:paddingLeft="10dp"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content" />
+                <TextView
+                    android:id="@+id/valueTax"
+                    android:text="@string/tax"
+                    android:textSize="20dp"
+                    android:paddingRight="10dp"
+                    android:layout_alignParentEnd="true"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content" />
+            </RelativeLayout>
+
+            <RelativeLayout
+                android:layout_marginTop="5dp"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+                <TextView
+                    android:id="@+id/deliveryChargetextView"
+                    android:text="@string/delivery_charge"
+                    android:textSize="20dp"
+                    android:paddingLeft="10dp"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content" />
+                <TextView
+                    android:id="@+id/valueDeliveryCharge"
+                    android:text="@string/delivery_charge"
+                    android:textSize="20dp"
+                    android:paddingRight="10dp"
+                    android:layout_alignParentEnd="true"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content" />
+            </RelativeLayout>
+            <View
+                android:layout_marginTop="10dp"
+                android:layout_width="350dp"
+                android:layout_gravity="center"
+                android:layout_height="1dp"
+                android:background="@android:color/darker_gray"/>
+            <RelativeLayout
+                android:layout_marginTop="5dp"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+                <TextView
+                    android:id="@+id/totaltextView"
+                    android:text="@string/total"
+                    android:textSize="25dp"
+                    android:paddingLeft="10dp"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content" />
+                <TextView
+                    android:id="@+id/valueTotal"
+                    android:text="@string/total"
+                    android:textSize="25dp"
+                    android:paddingRight="10dp"
+                    android:layout_alignParentEnd="true"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content" />
+            </RelativeLayout>
+
+            <Button
+                android:id="@+id/buttonPlaceOrder"
+                android:text="Place Order"
+                android:layout_marginTop="10dp"
+                android:background="@drawable/button_layout"
+                android:layout_width="300dp"
+                android:textSize="20dp"
+                android:layout_marginBottom="10dp"
+                android:layout_gravity="center"
+                android:layout_height="wrap_content" />
+        </LinearLayout>
+    </ScrollView>
+
+</LinearLayout>

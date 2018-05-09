@@ -6,7 +6,7 @@ import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 
 import com.example.purva.ubereats.R;
-import com.example.purva.ubereats.adapter.Pager;
+import com.example.purva.ubereats.data.adapter.Pager;
 
 public class FoodListActivity extends AppCompatActivity implements TabLayout.OnTabSelectedListener {
 TabLayout tabLayout;

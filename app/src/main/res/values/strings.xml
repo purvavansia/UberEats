@@ -4,4 +4,14 @@
     <string name="use_current_location">Use Current Location</string>
     <string name="enter_the_address">Enter the address</string>
     <string name="where_do_you_want_you_food_to_be_delivered">Where do you want you food to be delivered?</string>
+    <string name="your_cart">Your Cart</string>
+    <string name="arrives_in_30_mins">Arrives in 30 mins</string>
+    <string name="delivering_to">Delivering to:</string>
+    <string name="people_who_ordered_this_item_also_ordered">People who ordered this item also ordered</string>
+    <string name="add_a_note_extra_sauce_extra_napkins">Add a Note(extra sauce, extra napkins)</string>
+    <string name="special_instructions">Special Instructions</string>
+    <string name="subtotal">SubTotal</string>
+    <string name="tax">Tax</string>
+    <string name="delivery_charge">Delivery Charge</string>
+    <string name="total">Total</string>
 </resources>

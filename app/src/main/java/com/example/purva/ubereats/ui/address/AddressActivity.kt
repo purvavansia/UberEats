@@ -22,6 +22,8 @@ class AddressActivity : AppCompatActivity() {
         var address: EditText = findViewById(R.id.editTextAddress)
          var enter: ImageView = findViewById(R.id.enter)
          var sharedPreferences: SharedPreferences = getSharedPreferences("myfile", Context.MODE_PRIVATE)
+        val iAddressPresenter:IAddressPresenter
+        iAddressPresenter = AddressPresenter(this)
 
 
         enter.setOnClickListener {
@@ -29,8 +31,7 @@ class AddressActivity : AppCompatActivity() {
             var editor: SharedPreferences.Editor? = sharedPreferences.edit()
             editor!!.putString("deliveryaddress", deliveryAddress)
             editor!!.commit()
-            val mapIntent = Intent(this@AddressActivity, MapsActivity::class.java)
-            startActivity(mapIntent)
+            iAddressPresenter.onClickEnter()
         }
 
     }

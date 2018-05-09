@@ -1,4 +1,4 @@
-package com.example.purva.ubereats.adapter;
+package com.example.purva.ubereats.data.adapter;
 
 import android.content.Context;
 import android.support.annotation.NonNull;
@@ -12,8 +12,6 @@ import android.widget.TextView;
 import com.example.purva.ubereats.R;
 import com.example.purva.ubereats.model.Food;
 import com.squareup.picasso.Picasso;
-
-import org.w3c.dom.Text;
 
 import java.util.List;
 
