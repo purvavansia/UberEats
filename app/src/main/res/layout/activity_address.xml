@@ -35,5 +35,15 @@
             android:layout_height="50dp" />
     </LinearLayout>
 
+    <TextView
+        android:id="@+id/currentAddr"
+        android:textSize="20dp"
+
+        android:text="current location"
+        android:layout_marginTop="30dp"
+        android:layout_gravity="center_horizontal"
+        android:layout_width="250dp"
+        android:layout_height="wrap_content" />
+
 
 </LinearLayout>

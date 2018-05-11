@@ -18,7 +18,7 @@ public class Cart {
         Integer cartId;
         String foodId, foodName, foodPrice, quantity,image,flavor;
 
-        public CartBean(Integer cartId, String foodId, String foodName, String foodPrice, String quantity, String image, String flavor) {
+        public CartBean(Integer cartId, String foodId, String foodName, String foodPrice,String flavor, String quantity, String image) {
             this.cartId = cartId;
             this.foodId = foodId;
             this.foodName = foodName;
@@ -28,7 +28,7 @@ public class Cart {
             this.flavor = flavor;
         }
 
-        public CartBean(String foodId, String foodName, String foodPrice, String quantity, String image, String flavor) {
+        public CartBean(String foodId, String foodName, String foodPrice, String flavor, String quantity, String image) {
             this.foodId = foodId;
             this.foodName = foodName;
             this.foodPrice = foodPrice;

@@ -1,5 +1,6 @@
 package com.example.purva.ubereats.ui.location;
 
+import android.app.Activity;
 import android.content.Context;
 import android.content.Intent;
 import android.content.SharedPreferences;
@@ -9,16 +10,22 @@ import android.support.v4.app.FragmentActivity;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
+import android.widget.Toast;
 
 import com.example.purva.ubereats.R;
 import com.example.purva.ubereats.ui.address.AddressActivity;
 import com.example.purva.ubereats.ui.foodlist.FoodListActivity;
 
+import com.google.android.gms.common.GooglePlayServicesNotAvailableException;
+import com.google.android.gms.common.GooglePlayServicesRepairableException;
+import com.google.android.gms.location.places.Place;
+import com.google.android.gms.location.places.ui.PlacePicker;
 import com.google.android.gms.maps.CameraUpdateFactory;
 import com.google.android.gms.maps.GoogleMap;
 import com.google.android.gms.maps.OnMapReadyCallback;
 import com.google.android.gms.maps.SupportMapFragment;
 import com.google.android.gms.maps.model.LatLng;
+import com.google.android.gms.maps.model.Marker;
 import com.google.android.gms.maps.model.MarkerOptions;
 
 
@@ -26,6 +33,7 @@ import java.util.List;
 
 public class MapsActivity extends FragmentActivity implements OnMapReadyCallback {
 
+    public static final int REQUEST_CODE = 007;
     private GoogleMap mMap;
     SharedPreferences sharedPreferences;
     String streetAddr;
@@ -60,6 +68,8 @@ public class MapsActivity extends FragmentActivity implements OnMapReadyCallback
                 startActivity(intent);
             }
         });
+
+
     }
 
 
@@ -81,7 +91,9 @@ public class MapsActivity extends FragmentActivity implements OnMapReadyCallback
         mMap.addMarker(new MarkerOptions().position(sydney).title("Marker in Sydney"));
         mMap.moveCamera(CameraUpdateFactory.newLatLng(sydney));*/
         LatLng address = getLocationFromAddress(this, streetAddr);
-        mMap.addMarker(new MarkerOptions().position(address).title("Deliver to"));
+        MarkerOptions markerOptions = new MarkerOptions();
+        markerOptions.draggable(true);
+        mMap.addMarker(markerOptions.position(address).title("Deliver to")).setDraggable(true);
         mMap.moveCamera(CameraUpdateFactory.newLatLng(address));
         mMap.animateCamera(CameraUpdateFactory.newLatLngZoom(address, 12.0f));
     }
