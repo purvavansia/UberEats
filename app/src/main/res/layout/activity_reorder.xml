@@ -1,15 +1,87 @@
 <?xml version="1.0" encoding="utf-8"?>
 <android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
-    android:orientation="vertical">
+    tools:context=".ui.reorder.ReorderActivity">
 
-    <android.support.v7.widget.RecyclerView
-        android:id="@+id/rv_orders"
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        />
+    <TextView
+        android:id="@+id/foodname_tv"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="37dp"
+        android:layout_marginStart="16dp"
+        android:layout_marginTop="35dp"
+        android:text="FoodName"
+        android:textSize="25dp"
+        app:layout_constraintBottom_toTopOf="@+id/textView3"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+
+    <TextView
+        android:id="@+id/textView3"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="20dp"
+        android:layout_marginStart="5dp"
+        android:textStyle="bold"
+        android:text="Choose quantity: "
+        android:textSize="18dp"
+        app:layout_constraintBottom_toTopOf="@+id/numberPicker"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/foodname_tv" />
+
+    <NumberPicker
+        android:id="@+id/numberPicker"
+        android:layout_width="300dp"
+        android:layout_height="80dp"
+        android:layout_marginBottom="27dp"
+        android:layout_marginEnd="25dp"
+        android:layout_marginStart="25dp"
+        app:layout_constraintBottom_toTopOf="@+id/textView2"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/textView3" />
+
+    <TextView
+        android:id="@+id/textView2"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="16dp"
+        android:layout_marginStart="5dp"
+        android:textStyle="bold"
+        android:text="Input your address: "
+        android:textSize="18dp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/numberPicker" />
+
+    <EditText
+        android:id="@+id/address_et"
+        android:layout_width="300dp"
+        android:layout_height="50dp"
+        android:layout_marginBottom="157dp"
+        android:layout_marginEnd="28dp"
+        android:layout_marginStart="28dp"
+        android:ems="10"
+        android:hint="Input your address"
+        android:inputType="textPersonName"
+        android:text=""
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/textView2" />
+
+    <Button
+        android:id="@+id/btn"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="60dp"
+        android:text="Ok"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent" />
 
     <com.github.clans.fab.FloatingActionMenu
         android:id="@+id/material_design_android_floating_action_menu"
@@ -76,5 +148,6 @@
             app:fab_label="Order History"
             app:fab_size="mini" />
     </com.github.clans.fab.FloatingActionMenu>
+
 
 </android.support.constraint.ConstraintLayout>

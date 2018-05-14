@@ -11,7 +11,6 @@ import android.widget.TextView;
 
 import com.example.purva.ubereats.R;
 import com.example.purva.ubereats.data.model.FoodList;
-import com.example.purva.ubereats.model.Food;
 import com.squareup.picasso.Picasso;
 
 import java.util.List;

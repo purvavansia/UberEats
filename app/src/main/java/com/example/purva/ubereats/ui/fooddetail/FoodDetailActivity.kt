@@ -15,9 +15,13 @@ import android.widget.RadioGroup
 import android.widget.TextView
 
 import com.example.purva.ubereats.R
-import com.example.purva.ubereats.database.DbHelper
-import com.example.purva.ubereats.database.IDbHelper
+import com.example.purva.ubereats.data.database.DbHelper
+import com.example.purva.ubereats.data.database.IDbHelper
 import com.example.purva.ubereats.ui.checkout.CheckoutActivity
+import com.example.purva.ubereats.ui.foodlist.FoodListActivity
+import com.example.purva.ubereats.ui.orderhistory.OrderHistoryActivity
+import com.github.clans.fab.FloatingActionButton
+import com.github.clans.fab.FloatingActionMenu
 import com.squareup.picasso.Picasso
 
 class FoodDetailActivity : AppCompatActivity(), IFoodDetailView {
@@ -34,6 +38,7 @@ class FoodDetailActivity : AppCompatActivity(), IFoodDetailView {
     lateinit var imageView: ImageView
     lateinit var recepieeTxt: TextView
     lateinit var totalTxt: TextView
+
 
     lateinit var sharedPreferences: SharedPreferences
     lateinit var addtocartBtn: Button
@@ -90,13 +95,9 @@ class FoodDetailActivity : AppCompatActivity(), IFoodDetailView {
 
     override fun showFoodDetail() {
 
-
     }
 
     override fun setNumberPicker() {
-
-
-
 
     }
 }

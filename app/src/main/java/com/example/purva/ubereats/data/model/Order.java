@@ -1,4 +1,4 @@
-package com.example.purva.ubereats.model;
+package com.example.purva.ubereats.data.model;
 
 public class Order {
     String orderId;
@@ -9,6 +9,15 @@ public class Order {
     String orderDeliveryAddr;
     String orderDate;
 
+    public Order(String orderId, String orderName, String quantity, String totalOrder, String orderStatus, String orderDeliveryAddr, String orderDate) {
+        this.orderId = orderId;
+        this.orderName = orderName;
+        this.quantity = quantity;
+        this.totalOrder = totalOrder;
+        this.orderStatus = orderStatus;
+        this.orderDeliveryAddr = orderDeliveryAddr;
+        this.orderDate = orderDate;
+    }
 
     public String getOrderId() {
         return orderId;

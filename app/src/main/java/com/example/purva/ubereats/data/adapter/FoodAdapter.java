@@ -5,7 +5,6 @@ import android.content.Intent;
 import android.content.SharedPreferences;
 import android.support.annotation.NonNull;
 import android.support.v7.widget.RecyclerView;
-import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -13,7 +12,7 @@ import android.widget.ImageView;
 import android.widget.TextView;
 
 import com.example.purva.ubereats.R;
-import com.example.purva.ubereats.model.Food;
+import com.example.purva.ubereats.data.model.Food;
 import com.example.purva.ubereats.ui.fooddetail.FoodDetailActivity;
 import com.squareup.picasso.Picasso;
 

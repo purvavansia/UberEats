@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
-<android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<android.support.constraint.ConstraintLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:rfal="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
@@ -11,7 +12,7 @@
 
     <TextView
         android:id="@+id/textView"
-        android:layout_width="wrap_content"
+        android:layout_width="320dp"
         android:layout_height="50dp"
         android:layout_marginBottom="167dp"
         android:layout_marginEnd="42dp"
@@ -47,11 +48,9 @@
             android:src="@drawable/ic_launcher_foreground" />
 
         <TextView
-            android:textSize="18dp"
-            android:id="@+id/scannedQR"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_gravity="center"
+            android:layout_marginLeft="140dp"
             android:text="qrcode scan" />
 
 
@@ -156,8 +155,7 @@
             android:id="@+id/material_design_floating_action_menu_item1"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:background="@color/colorPrimary"
-            android:src="@drawable/ic_home_black_24dp"
+            android:src="@drawable/ic_brightness_1_black_24dp"
             app:fab_label="Home"
             app:fab_size="mini" />
 
@@ -177,9 +175,6 @@
             app:fab_label="Order History"
             app:fab_size="mini" />
     </com.github.clans.fab.FloatingActionMenu>
-
-
-
 
 
 </android.support.constraint.ConstraintLayout>

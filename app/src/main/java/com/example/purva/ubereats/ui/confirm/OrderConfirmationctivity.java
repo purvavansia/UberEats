@@ -1,11 +1,24 @@
 package com.example.purva.ubereats.ui.confirm;
 
+import android.content.Intent;
 import android.content.SharedPreferences;
 import android.graphics.Bitmap;
+
+import com.example.purva.ubereats.data.model.OrderConfirmed;
+import com.example.purva.ubereats.ui.checkout.CheckoutActivity;
+import com.example.purva.ubereats.ui.foodlist.FoodListActivity;
+import com.example.purva.ubereats.ui.orderhistory.OrderHistoryActivity;
+import com.github.clans.fab.FloatingActionButton;
+
+import android.graphics.BitmapFactory;
+import android.graphics.drawable.BitmapDrawable;
+import android.graphics.drawable.Drawable;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.support.v7.widget.RecyclerView;
 import android.util.Log;
+import android.util.SparseArray;
+import android.view.View;
 import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
@@ -16,12 +29,17 @@ import com.android.volley.VolleyError;
 import com.android.volley.toolbox.JsonObjectRequest;
 import com.android.volley.toolbox.StringRequest;
 import com.android.volley.toolbox.Volley;
+import com.example.purva.ubereats.MainActivity;
 import com.example.purva.ubereats.R;
 
 import com.example.purva.ubereats.data.database.DbHelper;
 import com.example.purva.ubereats.data.database.IDbHelper;
 import com.example.purva.ubereats.data.model.Cart;
-import com.example.purva.ubereats.model.OrderConfirmed;
+import com.example.purva.ubereats.data.model.OrderConfirmed;
+import com.github.clans.fab.FloatingActionMenu;
+import com.google.android.gms.vision.Frame;
+import com.google.android.gms.vision.barcode.Barcode;
+import com.google.android.gms.vision.barcode.BarcodeDetector;
 import com.google.zxing.BarcodeFormat;
 import com.google.zxing.MultiFormatWriter;
 import com.google.zxing.WriterException;
@@ -38,6 +56,8 @@ import java.util.Calendar;
 import java.util.Date;
 import java.util.List;
 
+import me.lynnchurch.library.FloatingActionButtonMenu;
+
 
 public class OrderConfirmationctivity extends AppCompatActivity {
     IDbHelper iDbHelper;
@@ -48,7 +68,10 @@ public class OrderConfirmationctivity extends AppCompatActivity {
     RecyclerView confirmedOrder_rv;
     String getOrderId;
     String formattedDate;
+    FloatingActionButtonMenu fabMenu;
 
+    FloatingActionMenu materialDesignFAM;
+    FloatingActionButton floatingActionButton1, floatingActionButton2, floatingActionButton3;
     TextView foodNameTxt, foodNumTxt, foodAddrTxt, foodTotalTxt, foodDateTxt;
     ImageView imageView;
 
@@ -64,16 +87,65 @@ public class OrderConfirmationctivity extends AppCompatActivity {
         sharedPreferences = getSharedPreferences("myfile",MODE_PRIVATE);
         streetAddr = sharedPreferences.getString("deliveryaddress","");
 
+        materialDesignFAM = (FloatingActionMenu) findViewById(R.id.material_design_android_floating_action_menu);
+        floatingActionButton1 = (FloatingActionButton) findViewById(R.id.material_design_floating_action_menu_item1);
+        floatingActionButton2 = (FloatingActionButton) findViewById(R.id.material_design_floating_action_menu_item2);
+        floatingActionButton3 = (FloatingActionButton) findViewById(R.id.material_design_floating_action_menu_item3);
 
+        floatingActionButton1.setOnClickListener(new View.OnClickListener() {
+            public void onClick(View v) {
+                //TODO something when floating action menu first item clicked
+                Intent intent = new Intent(OrderConfirmationctivity.this, FoodListActivity.class);
+                startActivity(intent);
+            }
+        });
+        floatingActionButton2.setOnClickListener(new View.OnClickListener() {
+            public void onClick(View v) {
+                //TODO something when floating action menu second item clicked
+                Intent intent = new Intent(OrderConfirmationctivity.this, CheckoutActivity.class);
+                startActivity(intent);
+
+            }
+        });
+        floatingActionButton3.setOnClickListener(new View.OnClickListener() {
+            public void onClick(View v) {
+                //TODO something when floating action menu third item clicked
+
+                Intent intent = new Intent(OrderConfirmationctivity.this, OrderHistoryActivity.class);
+                startActivity(intent);
+
+            }
+        });
 
 
 
         foodNameTxt = findViewById(R.id.foodName);
-        foodNumTxt = findViewById(R.id.foodNum);
         foodAddrTxt = findViewById(R.id.foodAddr);
         foodTotalTxt = findViewById(R.id.foodTotal);
         foodDateTxt = findViewById(R.id.foodDate);
         imageView = findViewById(R.id.iv_qr);
+       /* fabMenu = findViewById(R.id.fab_menu);
+
+        fabMenu.setOnMenuItemClickListener(new FloatingActionButtonMenu.OnMenuItemClickListener()
+        {
+            @Override
+            public void onMenuItemClick(FloatingActionButton button, int btnId)
+            {
+                switch (btnId)
+                {
+//
+//                    case R.id.backup:
+//                        Toast.makeText(OrderConfirmationctivity.this, "Go to cart", Toast.LENGTH_SHORT).show();
+//                        break;
+//                    case R.id.grade:
+//                       Toast.makeText(OrderConfirmationctivity.this, "Go to Home screen", Toast.LENGTH_SHORT).show();
+//                        break;
+//                    default:
+                }
+            }
+        });*/
+
+
 
 
         iDbHelper = new DbHelper(this);
@@ -117,7 +189,7 @@ public class OrderConfirmationctivity extends AppCompatActivity {
 
             Calendar c = Calendar.getInstance();
             SimpleDateFormat df = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
-             formattedDate= df.format(c.getTime());
+            formattedDate= df.format(c.getTime());
 
             StringRequest request = new StringRequest(Request.Method.GET, "http://rjtmobile.com/ansari/fos/fosapp/order_request.php?&order_category=veg_nonveg" +
                     "&order_name=" + foodname + "&order_quantity=" + quantity + "&total_order=" + String.valueOf(totalint) + "&order_delivery_add="+streetAddr+
@@ -136,7 +208,7 @@ public class OrderConfirmationctivity extends AppCompatActivity {
 
                                 secondCall();
                             }
-                            }
+                        }
                     }, new com.android.volley.Response.ErrorListener() {
                 @Override
                 public void onErrorResponse(VolleyError error) {
@@ -147,16 +219,6 @@ public class OrderConfirmationctivity extends AppCompatActivity {
             Volley.newRequestQueue(OrderConfirmationctivity.this).add(request);
 
         }
-
-
-
-
-       /* //adapter?
-
-        ConfirmationAdapter confirmationAdapter = new ConfirmationAdapter(OrderConfirmationctivity.this,confirmedOrderList);
-        confirmationAdapter.notifyDataSetChanged();
-        confirmedOrder_rv.setAdapter(confirmationAdapter);*/
-
 
     }
 
@@ -186,7 +248,6 @@ public class OrderConfirmationctivity extends AppCompatActivity {
 
 
                     foodNameTxt.setText(ordername);
-                    foodNumTxt.setText("Quantity: "+ orderquantity);
                     foodAddrTxt.setText("Address: " + orderAddr);
                     foodDateTxt.setText("Date: "+ orderDate);
                     foodTotalTxt.setText("Total: "+ orderTotal);
@@ -202,6 +263,20 @@ public class OrderConfirmationctivity extends AppCompatActivity {
                     Bitmap bitmap = barcodeEncoder.createBitmap(bitMatrix);
 
                     imageView.setImageBitmap(bitmap);
+
+                    BarcodeDetector detector =
+                            new BarcodeDetector.Builder(getApplicationContext())
+                                    .setBarcodeFormats(Barcode.DATA_MATRIX | Barcode.QR_CODE)
+                                    .build();
+                    Frame frame = new Frame.Builder().setBitmap(bitmap).build();
+                    SparseArray<Barcode> barcodes = detector.detect(frame);
+                    Barcode thisCode = barcodes.valueAt(0);
+                    TextView txtView = (TextView) findViewById(R.id.scannedQR);
+                    txtView.setText(thisCode.rawValue);
+                    if(!detector.isOperational()){
+                        txtView.setText("Could not set up the detector!");
+                        return;
+                    }
 
 
                 } catch (JSONException e) {
@@ -223,6 +298,6 @@ public class OrderConfirmationctivity extends AppCompatActivity {
 
 
 
-    }
+}
 
 

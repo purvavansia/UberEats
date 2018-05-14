@@ -5,9 +5,7 @@ import android.view.View;
 
 import com.example.purva.ubereats.base.BasePresenter;
 import com.example.purva.ubereats.base.BaseView;
-import com.example.purva.ubereats.model.Food;
-
-import java.util.List;
+import com.example.purva.ubereats.data.model.Food;
 
 public interface FoodListContract {
 

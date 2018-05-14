@@ -2,10 +2,7 @@ package com.example.purva.ubereats.ui.fooddetail
 
 import android.content.Context
 
-import com.example.purva.ubereats.database.DbHelper
-import com.example.purva.ubereats.database.IDbHelper
-import com.example.purva.ubereats.model.Food
-import com.example.purva.ubereats.ui.foodlist.FoodListContract
+import com.example.purva.ubereats.data.database.DbHelper
 
 class FoodDetailPresenter(internal var context: Context, internal var iFoodDetailView: IFoodDetailView) : IFoodDetailPresenter {
 

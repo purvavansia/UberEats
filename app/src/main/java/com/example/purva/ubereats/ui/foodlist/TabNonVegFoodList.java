@@ -20,7 +20,7 @@ import com.android.volley.toolbox.JsonObjectRequest;
 import com.android.volley.toolbox.Volley;
 import com.example.purva.ubereats.R;
 import com.example.purva.ubereats.data.adapter.FoodAdapter;
-import com.example.purva.ubereats.model.Food;
+import com.example.purva.ubereats.data.model.Food;
 
 import org.json.JSONArray;
 import org.json.JSONException;

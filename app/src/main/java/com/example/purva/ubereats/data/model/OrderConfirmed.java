@@ -1,4 +1,4 @@
-package com.example.purva.ubereats.model;
+package com.example.purva.ubereats.data.model;
 
 public class OrderConfirmed {
    String orderId;
